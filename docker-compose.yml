@@ -9,6 +9,8 @@ services:
       - ./progressive-disclosure.page.gd/htdocs:/var/www/html/progressive
     depends_on:
       - db
+    networks:
+      - webnet
 
   db:
     image: mysql:8.0
@@ -22,6 +24,13 @@ services:
     volumes:
       - db_data:/var/lib/mysql
       - ./if0_40090928_penilaian_akademik.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - webnet
 
 volumes:
   db_data:
+
+
+networks:
+  webnet:
+    external: true
