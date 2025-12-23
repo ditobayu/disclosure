@@ -2,7 +2,7 @@ services:
   web:
     build: .
     ports:
-      - "10200:80"
+      - "127.0.0.1:10200:80"
     volumes:
       - ./index.html:/var/www/html/index.html
       - ./direct-disclosure.page.gd/htdocs:/var/www/html/direct
@@ -20,7 +20,7 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: password
     ports:
-      - "10201:3306"
+      - "127.0.0.1:10201:3306"
     volumes:
       - db_data:/var/lib/mysql
       - ./if0_40090928_penilaian_akademik.sql:/docker-entrypoint-initdb.d/init.sql
